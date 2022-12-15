@@ -13,8 +13,30 @@ pipeline {
     }
 
     stage('Front-End Unit Test') {
-      steps {
-        sh 'cd curriculum-front && npm i && npm run test:unit'
+      parallel {
+        stage('Front-End Unit Test') {
+          steps {
+            sh 'cd curriculum-front && npm i && npm run test:unit'
+          }
+        }
+
+        stage('Checks') {
+          steps {
+            sh '''echo "DIRECTORIO\\
+-----------------------\\
+-----------------------";
+pwd;
+echo "USUARIO\\
+-----------------------\\
+-----------------------";
+echo $USER;
+echo "SUBDIRECTORIOS\\
+-----------------------\\
+-----------------------";
+ll'''
+          }
+        }
+
       }
     }
 
