@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Deploy APP') {
       steps{
-        sshagent(credentials: ['APPServerUser']) {
+        sshagent(credentials: ['SSHAPP']) {
             sh'ssh -o StrictHostKeyChecking=no -l userapp 10.67.34.250 uname -a'
         }
       }
