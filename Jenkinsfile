@@ -11,10 +11,12 @@ pipeline {
         git(url: 'https://github.com/GNBarbaIsdefe/curriculum-app', branch: 'main')
       }
     }
-    stage('Checkout Code') {
+    stage('Deploy APP') {
+      steps{
         sshagent(['APPServerUser']) {
-            // some block
+            sh"ll"
         }
+      }
     }
   }
 }
