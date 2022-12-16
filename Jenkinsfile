@@ -14,7 +14,10 @@ pipeline {
     stage('Deploy APP') {
       steps{
         sshagent(credentials: ['APPServerUser']) {
-            sh"ll"
+            sh'''
+            ls 
+            git --version
+            '''
         }
       }
     }
