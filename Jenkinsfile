@@ -15,7 +15,7 @@ pipeline {
       steps{
         sshagent(credentials: ['APPServerUser']) {
             sh'''
-            ssh -o StrictHostKeyChecking=no userapp@10.67.34.250
+            ssh -To StrictHostKeyChecking=no userapp@10.67.34.250
             ls 
             git --version
             '''
