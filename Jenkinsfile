@@ -11,7 +11,7 @@ pipeline {
         git(url: 'https://github.com/GNBarbaIsdefe/curriculum-app', branch: 'main')
       }
     }
-    stage('Deploy APP') {
+    stage(credentials: ['Deploy APP']) {
       steps{
         sshagent(['APPServerUser']) {
             sh"ll"
