@@ -14,11 +14,7 @@ pipeline {
     stage('Deploy APP') {
       steps{
         sshagent(credentials: ['APPServerUser']) {
-            sh'''
-            ssh -To StrictHostKeyChecking=no userapp@10.67.34.250
-            ls 
-            git --version
-            '''
+            sh'ssh -o StrictHostKeyChecking=no -l userapp 10.67.34.250 uname -a'
         }
       }
     }
