@@ -15,7 +15,7 @@ pipeline {
     stage('Deploy APP') {
       steps {
         sshagent(credentials: ['SSHAPP']) {
-          sh 'ssh -o StrictHostKeyChecking=no -l userapp 10.67.33.250 uname -a'
+          sh 'ssh -o StrictHostKeyChecking=no -l userapp 10.67.33.250 uname -a && ls'
         }
 
       }
